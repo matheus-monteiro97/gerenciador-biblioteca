@@ -1,0 +1,16 @@
+{
+  "name": "gerenciador-biblioteca",
+  "version": "1.0.0",
+  "description": "Aplicação de gerenciamento de biblioteca pessoal",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jsup": "^0.0.1",
+    "jsx": "^0.9.89"
+  }
+}
