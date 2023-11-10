@@ -19,8 +19,7 @@ Leitores podem ter dificuldade para realizar o devido gerenciamento dos livros q
 * Cadastro de Usuário;
 * Login e Senha;
 * Recuperação de Senha;
-* Cadastro e Visualização de Livros;
-* Cadastro e Visualização de Lista de Compras;
+* Cadastro e Visualização de Livros (Incluindo livros que deseja comprar).
 
 ### Necessidades do Usuário (Público Alvo):
 * Leitores que desejam aprimorar a organização de seus livros.
@@ -31,7 +30,7 @@ Leitores podem ter dificuldade para realizar o devido gerenciamento dos livros q
 | Perfil | Nome | Função | Github | Linkedin |
 | :----------------: | :-----: | :---------: | :---------: | :---------: |
 | <img width="100" alt="Foto Advalker" src="imagens/advalker.jpeg"> | `Advalker Souto` | Desenvolvedor <br> Front-end | <a href="https://github.com/Advalker"> <img height="80" alt="GitHub Advalker" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a> | <a href= "https://www.linkedin.com/in/advalker-l-s-maior-5436a520a/"><img height="80" alt="linkedin Advalker" src="imagens/linkedln.png"></a> |
-| <img width="100" alt="Foto Luiz" src="imagens/luiz.jpeg"> | `Luiz Cláudio` | Desenvolvedor Full-stack <br> Q.A| <a href="https://github.com/LuizClaudioPestana"><img height="80" alt="GitHub Luiz" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a> | <a href= "https://www.linkedin.com/in/luizclaudiopestana/"><img height="80" alt="linkedin Luiz" src="imagens/linkedln.png"></a> |
+| <img width="100" alt="Foto Luiz" src="imagens/luiz.jpeg"> | `Luiz Cláudio` | Desenvolvedor Back-end <br> Q.A| <a href="https://github.com/LuizClaudioPestana"><img height="80" alt="GitHub Luiz" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a> | <a href= "https://www.linkedin.com/in/luizclaudiopestana/"><img height="80" alt="linkedin Luiz" src="imagens/linkedln.png"></a> |
 | <img width="100" alt="Foto Marcelo" src="imagens/marcelo.jpeg"> | `Marcelo Mendonça` | Desenvolvedor <br> Back-end | <a href="https://github.com/mclmendonca"> <img height="80" alt="GitHub Marcelo" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a> | <a href=""> <img height="80" alt="linkedin Marcelo" src="imagens/linkedln.png"></a> | 
-| <img width="100" alt="Foto Matheus" src="imagens/Matheus.jpg"> | `Matheus Monteiro` | Desenvolvedor Full-stack | <a href="https://github.com/matheus-monteiro97"> <img height="80" alt="GitHub Matheus" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a> | <a href= "https://www.linkedin.com/in/matheus-monteiro97/"><img height="80" alt="linkedin Matheus" src="imagens/linkedln.png"></a> |
-| <img width="100" alt="Foto Samara" src="imagens/samara.jpeg"> | `Samara Restely` | Desenvolvedora <br> Back-end | <a href="https://github.com/Restely"> <img height="80" alt="GitHub Samara" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a> | <a href= "https://www.linkedin.com/in/samara-restely/"><img height="80" alt="linkedin Samara" src="imagens/linkedln.png"></a> |
+| <img width="100" alt="Foto Matheus" src="imagens/Matheus.jpg"> | `Matheus Monteiro` | Scrum Master <br> Desenvolvedor Back-end | <a href="https://github.com/matheus-monteiro97"> <img height="80" alt="GitHub Matheus" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a> | <a href= "https://www.linkedin.com/in/matheus-monteiro97/"><img height="80" alt="linkedin Matheus" src="imagens/linkedln.png"></a> |
+| <img width="100" alt="Foto Samara" src="imagens/samara.jpeg"> | `Samara Restely` | Desenvolvedora <br> Front-end | <a href="https://github.com/Restely"> <img height="80" alt="GitHub Samara" src="https://github.com/devicons/devicon/blob/master/icons/github/github-original.svg"></a> | <a href= "https://www.linkedin.com/in/samara-restely/"><img height="80" alt="linkedin Samara" src="imagens/linkedln.png"></a> |
