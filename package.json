@@ -5,21 +5,15 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node test_url.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "jsup": "^0.0.1",
-    "jsx": "^0.9.89",
-    "prisma": "^5.5.2"
+    "jsx": "^0.9.89"
   },
   "dependencies": {
-    "@prisma/client": "^5.5.2",
     "express": "^4.18.2"
   },
-  "prisma": {
-    "schema": "db/schema.prisma"
-  }
 }
