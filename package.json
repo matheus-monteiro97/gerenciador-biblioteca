@@ -4,9 +4,19 @@
   "description": "Aplicação de gerenciamento de biblioteca pessoal",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jsup": "^0.0.1",
+    "jsx": "^0.9.89"
+  },
+  "dependencies": {
+    "mysql2": "^3.6.3",
+    "nodemon": "^3.0.1",
+    "sequelize": "^6.34.0"
+  }
 }
