@@ -1,9 +1,9 @@
 const User = require('../model/userModel');
 
-(async () => {
 
-    const database = require('./dbConnection');
-    await database.sync();
+
+    const database = require('../config/dbConnection');
+    database.sync();
 
     const UserController = {
         // Criação de usuários
@@ -27,11 +27,11 @@ const User = require('../model/userModel');
             }
         },
     
-        // Pegar usuárioo usando email como parâmetro
+        // Pegar usuário usando email como parâmetro
         getEmail: async (req, res) => {
             try {
                 const { email } = req.params;
-                const User = await User.findOne({ where: { email } });
+                const user = await User.findOne({ where: { email } });
                 if (!user) {
                     return res.status(404).json({ error: 'User not found' });
                 }
@@ -44,15 +44,13 @@ const User = require('../model/userModel');
         // Atualizar usuário usando email como parâmetro
         updateEmail: async (req, res) => {
             try {
-                const { id } = req.params;
-                const { name, email, password } = req.body;
-    
-                const user = await User.findByPk(id);
+                const { email } = req.params;
+                const user = await User.findOne({where: {email}});
                 if (!user) {
                     return res.status(404).json({ error: 'User not found' });
                 }
     
-                await user.update({ name, email, password });
+                await User.update({ name, email, password });
                 return res.status(200).json(user);
             } catch (error) {
                 return res.status(500).json({ error: 'Error updating user' });
@@ -63,7 +61,7 @@ const User = require('../model/userModel');
         deleteEmail: async (req, res) => {
             try {
                 const { email } = req.params;
-                const User = await User.findOne({ where: { email } });
+                const user = await User.findOne({ where: { email } });
                 if (!user) {
                     return res.status(404).json({ error: 'User not found' });
                 }
@@ -76,6 +74,4 @@ const User = require('../model/userModel');
         }
     };
 
-})();
-
-module.exports = UserController;
+    module.exports = UserController;
