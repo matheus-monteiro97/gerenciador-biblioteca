@@ -9,11 +9,9 @@ const Book = database.define('book', {
         primaryKey: true,
         allowNull: false
     },
-    
-    title: { 
-        type: Sequelize.STRING, 
+    title: {
+        type: Sequelize.STRING,
         allowNull: false
-
     },
     author: {
         type: Sequelize.STRING,
@@ -27,21 +25,25 @@ const Book = database.define('book', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    comment : {
+    comment: {
         type: Sequelize.TEXT,
         allowNull: true
     },
     own: {
         type: Sequelize.BOOLEAN,
         allowNull: false
+    },
+    userId: { // Chave estrangeira referente ao usuário
+        type: Sequelize.INTEGER,
+        references: {
+            model: User,
+            key: 'id'
+        }
     }
+});
 
-    
-}); 
-//Relacionamento do UserID com o livro
 Book.belongsTo(User, {
-    constraint: true,
-    foreignKey: 'userId' //nome da coluna que vai receber a chave estrangeira
+    foreignKey: 'userId'
 });
 
 module.exports = Book;
