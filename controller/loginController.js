@@ -4,7 +4,7 @@ const User = require('../model/userModel');
 
 
 
-  const database = require('./dbConnection');
+  const database = require('../config/dbConnection');
   database.sync();
 
 const loginController = express.Router();

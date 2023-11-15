@@ -1,7 +1,7 @@
 const Book = require('../model/bookModel');
 
-    const database = require('./dbConnection');
-    await database.sync();
+    const database = require('../config/dbConnection');
+    database.sync();
 
     const bookController = {
         // Criação de livros
@@ -27,8 +27,8 @@ const Book = require('../model/bookModel');
 
         getByPk: async (req, res) => {
             try {
-                const { id } = req.params;
-                const book = await Book.findByPk(id);
+                const { idBook } = req.params;
+                const book = await Book.findByPk(idBook);
                 
                 if (!book) {
                     return res.status(404).json({ error: 'Book not found' });
@@ -42,16 +42,12 @@ const Book = require('../model/bookModel');
 
         updateByPk: async (req, res) => {
             try {
-                const { id } = req.params;
+                const { idBook } = req.params;
                 const { title , author, genre, publishCompany, comment, own } = req.body;
     
-                const book = await Book.findByPk(id);
+                const book = await Book.findByPk(idBook);
                 if (!book) {
                     return res.status(404).json({ error: 'User not found' });
-                }
-
-                if (book.userId !== userId) {
-                    return res.status(403).json({ error: 'Unauthorized operation' });
                 }
     
                 await book.update({ title , author, genre, publishCompany, comment, own });
@@ -63,8 +59,8 @@ const Book = require('../model/bookModel');
         
         deleteByPk: async (req, res) => {
             try {
-                const { id } = req.params;
-                const book = await Book.findByPk(id);
+                const { idBook } = req.params;
+                const book = await Book.findByPk(idBook);
 
                 if (!book) {
                     return res.status(404).json({ error: 'Book not found' });
@@ -77,3 +73,5 @@ const Book = require('../model/bookModel');
         }
 
     };
+
+    module.exports = bookController;

@@ -28,29 +28,45 @@ const User = require('../model/userModel');
         },
     
         // Pegar usuário usando email como parâmetro
-        getEmail: async (req, res) => {
+        getByPk: async (req, res) => {
             try {
-                const { email } = req.params;
-                const user = await User.findOne({ where: { email } });
+                const { id } = req.params;
+                const user = await User.findByPk(id);
+                
                 if (!user) {
                     return res.status(404).json({ error: 'User not found' });
                 }
+        
                 return res.status(200).json(user);
             } catch (error) {
-                return res.status(500).json({ error: 'Error getting user' });
+                return res.status(500).json({ error: 'Error getting User' });
             }
         },
+        // getEmail: async (req, res) => {
+        //     try {
+        //         const { email } = req.params;
+        //         const user = await User.findOne({ where: { email } });
+        //         if (!user) {
+        //             return res.status(404).json({ error: 'User not found' });
+        //         }
+        //         return res.status(200).json(user);
+        //     } catch (error) {
+        //         return res.status(500).json({ error: 'Error getting user' });
+        //     }
+        // },
     
         // Atualizar usuário usando email como parâmetro
-        updateEmail: async (req, res) => {
+        updateByPk: async (req, res) => {
             try {
-                const { email } = req.params;
-                const user = await User.findOne({where: {email}});
+                const { id } = req.params;
+                const { name, email, password } = req.body;
+    
+                const user = await User.findByPk(id);
                 if (!user) {
                     return res.status(404).json({ error: 'User not found' });
                 }
     
-                await User.update({ name, email, password });
+                await user.update({ name, email, password });
                 return res.status(200).json(user);
             } catch (error) {
                 return res.status(500).json({ error: 'Error updating user' });
@@ -58,20 +74,34 @@ const User = require('../model/userModel');
         },
     
         // Deletar usuário usando email como parâmetro
-        deleteEmail: async (req, res) => {
+        deleteByPk: async (req, res) => {
             try {
-                const { email } = req.params;
-                const user = await User.findOne({ where: { email } });
+                const { id } = req.params;
+                const user = await User.findByPk(id);
+
                 if (!user) {
                     return res.status(404).json({ error: 'User not found' });
                 }
-    
                 await user.destroy();
                 return res.status(204).json();
             } catch (error) {
-                return res.status(500).json({ error: 'Error deleting user' });
+                return res.status(500).json({ error: 'Error deleting User' });
             }
         }
+    //     deleteEmail: async (req, res) => {
+    //         try {
+    //             const { email } = req.params;
+    //             const user = await User.findOne({ where: { email } });
+    //             if (!user) {
+    //                 return res.status(404).json({ error: 'User not found' });
+    //             }
+    
+    //             await user.destroy();
+    //             return res.status(204).json();
+    //         } catch (error) {
+    //             return res.status(500).json({ error: 'Error deleting user' });
+    //         }
+    //     }
     };
 
     module.exports = UserController;
