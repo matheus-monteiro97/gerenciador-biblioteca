@@ -27,7 +27,7 @@ const User = require('../model/userModel');
             }
         },
     
-        // Pegar usuário usando email como parâmetro
+        // Pegar usuário usando ID como parâmetro
         getByPk: async (req, res) => {
             try {
                 const { id } = req.params;
@@ -42,20 +42,8 @@ const User = require('../model/userModel');
                 return res.status(500).json({ error: 'Error getting User' });
             }
         },
-        // getEmail: async (req, res) => {
-        //     try {
-        //         const { email } = req.params;
-        //         const user = await User.findOne({ where: { email } });
-        //         if (!user) {
-        //             return res.status(404).json({ error: 'User not found' });
-        //         }
-        //         return res.status(200).json(user);
-        //     } catch (error) {
-        //         return res.status(500).json({ error: 'Error getting user' });
-        //     }
-        // },
     
-        // Atualizar usuário usando email como parâmetro
+        // Atualizar usuário usando ID como parâmetro
         updateByPk: async (req, res) => {
             try {
                 const { id } = req.params;
@@ -73,7 +61,7 @@ const User = require('../model/userModel');
             }
         },
     
-        // Deletar usuário usando email como parâmetro
+        // Deletar usuário usando ID como parâmetro
         deleteByPk: async (req, res) => {
             try {
                 const { id } = req.params;
@@ -88,20 +76,6 @@ const User = require('../model/userModel');
                 return res.status(500).json({ error: 'Error deleting User' });
             }
         }
-    //     deleteEmail: async (req, res) => {
-    //         try {
-    //             const { email } = req.params;
-    //             const user = await User.findOne({ where: { email } });
-    //             if (!user) {
-    //                 return res.status(404).json({ error: 'User not found' });
-    //             }
-    
-    //             await user.destroy();
-    //             return res.status(204).json();
-    //         } catch (error) {
-    //             return res.status(500).json({ error: 'Error deleting user' });
-    //         }
-    //     }
     };
 
     module.exports = UserController;
