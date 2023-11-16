@@ -21,11 +21,11 @@ app.delete('/users/:id', UserController.deleteByPk);
 app.post('/login', loginController.login);
 
 // CRUD LIVROS
-app.post('/id/books', bookController.create);
-app.get('/books/:userID', bookController.getAll);
-app.get('/books/:userID/:idBook', bookController.getByPk);
-app.put('/books/:userID/:idBook', bookController.updateByPk);
-app.delete('/books/:userID/:idBook', bookController.deleteByPk);
+app.post('/users/books/:userId', bookController.create);
+app.get('/users/books/:userId', bookController.getAll);
+app.get('/users/books/:userId/:idBook', bookController.getByPk);
+app.put('/users/books/:userId/:idBook', bookController.updateByPk);
+app.delete('/users/books/:userId/:idBook', bookController.deleteByPk);
 
 app.listen(3000, () => {
   console.log(`Server running on port`);
