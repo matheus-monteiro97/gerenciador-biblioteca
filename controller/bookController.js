@@ -1,26 +1,35 @@
 const Book = require('../model/bookModel');
+const User = require ('../model/userModel')
 
-    const database = require('../config/dbConnection');
-    database.sync();
+const database = require('../config/dbConnection');
+database.sync();
 
-    const bookController = {
+const bookController = {
         // Criação de livros
         create: async (req, res) => {
             try {
                 const { title , author, genre, publishCompany, comment, own } = req.body;
-                const newBook = await Book.create({ title, author, genre, publishCompany, comment, own });
+                
+                // Adiciona o UserID associado ao livro
+                const userId = req.params.userId;
+                const newBook = await Book.create({ title, author, genre, publishCompany, comment, own, userId});
+    
                 return res.status(201).json(newBook);
             } catch (error) {
+                console.error(error);
                 return res.status(500).json({ error: 'Error creating book' });
             }
         },
-
-        // Pegar todos os livros
+    
+        // Pegar todos os livros associados ao UserID
         getAll: async (req, res) => {
             try {
-                const books = await Book.findAll();
+                const userId = req.params.userId;
+    
+                const books = await Book.findAll({ where: { userId } });
                 return res.status(200).json(books);
             } catch (error) {
+                console.error(error);
                 return res.status(500).json({ error: 'Error getting books' });
             }
         },
@@ -28,50 +37,62 @@ const Book = require('../model/bookModel');
         getByPk: async (req, res) => {
             try {
                 const { idBook } = req.params;
-                const book = await Book.findByPk(idBook);
-                
+                const userId = req.params.userId;
+        
+                const book = await Book.findByPk(idBook, { where: { userId } });
+        
                 if (!book) {
                     return res.status(404).json({ error: 'Book not found' });
                 }
         
                 return res.status(200).json(book);
             } catch (error) {
+                console.error(error);
                 return res.status(500).json({ error: 'Error getting book' });
             }
         },
 
-        updateByPk: async (req, res) => {
-            try {
-                const { idBook } = req.params;
-                const { title , author, genre, publishCompany, comment, own } = req.body;
-    
-                const book = await Book.findByPk(idBook);
-                if (!book) {
-                    return res.status(404).json({ error: 'User not found' });
-                }
-    
-                await book.update({ title , author, genre, publishCompany, comment, own });
-                return res.status(200).json(book);
-            } catch (error) {
-                return res.status(500).json({ error: 'Error updating user' });
-            }
-        },
-        
-        deleteByPk: async (req, res) => {
-            try {
-                const { idBook } = req.params;
-                const book = await Book.findByPk(idBook);
+    updateByPk: async (req, res) => {
+        try {
+            const { idBook } = req.params;
+            const { title, author, genre, publishCompany, comment, own } = req.body;
 
-                if (!book) {
-                    return res.status(404).json({ error: 'Book not found' });
-                }
-                await book.destroy();
-                return res.status(204).json();
-            } catch (error) {
-                return res.status(500).json({ error: 'Error deleting book' });
+            const userId = req.params.userId;
+
+            const book = await Book.findByPk(idBook, { where: { userId } });
+
+            if (!book) {
+                return res.status(404).json({ error: 'Book not found or unauthorized' });
             }
+
+            await book.update({ title, author, genre, publishCompany, comment, own });
+            return res.status(200).json(book);
+        } catch (error) {
+            console.error(error);
+            return res.status(500).json({ error: 'Error updating book' });
         }
+    },
+    
+    deleteByPk: async (req, res) => {
+        try {
+            const { idBook } = req.params;
 
-    };
+            const userId = req.params.userId;
 
-    module.exports = bookController;
+            const book = await Book.findByPk(idBook, { where: { userId } });
+
+            if (!book) {
+                return res.status  (404).json({ error: 'Book not found or unauthorized' });
+            }
+
+            await book.destroy();
+            return res.status(204).json();
+        } catch (error) {
+            console.error(error);
+            return res.status(500).json({ error: 'Error deleting book' });
+        }
+    },
+
+};
+
+module.exports = bookController;
